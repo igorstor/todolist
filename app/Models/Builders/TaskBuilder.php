@@ -32,7 +32,7 @@ class TaskBuilder extends Builder
         });
     }
 
-    public function orderIfSet(OrderingInputsCollection $sortOrder)
+    public function orderIfSet(OrderingInputsCollection $sortOrder): self
     {
         return $this->when($sortOrder->isNotEmpty(), function (self $builder) use ($sortOrder) {
              $sortOrder->each(function (OrderingValueObject $order) use (&$builder) {
