@@ -15,7 +15,7 @@ class TaskController extends Controller
     {
         $tasks = Task::query()
                      ->with('subtasks')
-                     ->searchIfSet()
+                     ->searchIfSet($request->search)
                      ->filterByPriorityIfSet($request->priority)
                      ->filterByStatusesIfSet($request->statuses)
                      ->orderIfSet($request->sortOrder)
